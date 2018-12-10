@@ -635,6 +635,11 @@ static NSMutableSet *_retainedPopupControllers;
 - (void)bgViewDidTap
 {
     [_containerView endEditing:YES];
+    
+    /// Callback
+    if ([self.delegate respondsToSelector:@selector(popUpControllerDidTapOutside:)]) {
+        [self.delegate popUpControllerDidTapOutside:self];
+    }
 }
 
 - (void)setCornerRadius:(CGFloat)cornerRadius

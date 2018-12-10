@@ -71,7 +71,23 @@ typedef NS_ENUM(NSUInteger, STPopupTransitionStyle) {
     STPopupTransitionStyleCustom
 };
 
+/// ----------------------------------------------------------------------------------
+#pragma mark - ST POPUP DELEGATE - Create at 15/03/2018
+/// ----------------------------------------------------------------------------------
+@class STPopupController;
+@protocol STPopupControllerDelegate <NSObject>
+- (void)popUpControllerDidTapOutside:(STPopupController *)controller;
+@end
+
+/// ----------------------------------------------------------------------------------
+#pragma mark - ST POPUP CONTROLLER
+/// ----------------------------------------------------------------------------------
 @interface STPopupController : NSObject
+    
+/**
+Custom delegate for callback
+*/
+@property (nullable, nonatomic, weak) id<STPopupControllerDelegate> delegate;
 
 /**
  Style decides the final position of a popup.
